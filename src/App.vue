@@ -13,6 +13,7 @@
         <popupcart class="cart" v-if="getPopupCart"/>
       </transition>
     </mainMenu>
+    <sorting></sorting>
     <transition name="leave">
       <router-view></router-view>
     </transition>
@@ -23,6 +24,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import mainMenu from './components/Menu';
+import sorting from './components/Sorting';
 import btn from './components/Btn';
 import popupcart from './components/Popupcart';
 import maskBg from './components/Mask';
@@ -30,6 +32,7 @@ import maskBg from './components/Mask';
 export default {
   components: {
     mainMenu,
+    sorting,
     btn,
     popupcart,
     maskBg,
