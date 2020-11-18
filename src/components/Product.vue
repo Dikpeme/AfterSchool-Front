@@ -1,7 +1,7 @@
 <template>
   <div class="product-box">
     <div class="product-image">
-      <img :src="currentProduct.image" alt="">
+      <img :src="currentProduct.image" alt="" style="max-width:100%;">
       <stars :rate="rated(currentProduct.stars)" :totalReviews="currentProduct.totalReviews"/>
     </div>
     <div class="product-info">

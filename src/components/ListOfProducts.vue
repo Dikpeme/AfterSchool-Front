@@ -1,7 +1,7 @@
 <template>
   <ul class="listOfProducts">
     <li v-for="(product, index) in products" :key="index" class="product">
-      <img :src="product.image" alt="">
+      <img :src="product.image" alt="" style="max-width:100%">
       <router-link to="/product-details">
         <h2 class="product-name"
             @click="addCurrentProduct(product)">
@@ -10,8 +10,14 @@
       </router-link>
       <div class="product-price">
         <span>R$ {{ product.price }}, 00</span>
-        <span>10 x {{ Math.round(product.price / 10) }}, 00 </span>
+        <span>{{ Math.round(product.price / 10) }}, 00 </span>
       </div>
+      <div class="product-spaces">
+               <span>Spaces: {{ product.spaces }} </span>
+</div>
+      <div class="product-location">
+        <span>Location: {{ product.location }} </span>
+     </div>
 
       <btn btnColor="btn btn-large btn-sucess"
           :cartIcon="true"
@@ -47,7 +53,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
   .listOfProducts {
     width: 100%;

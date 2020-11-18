@@ -52,8 +52,23 @@ export default {
     align-self: flex-start;
     display: flex;
     justify-content: space-between;
-    margin-bottom: .5em;
+    margin-bottom: 1em;
   }
+ .product-spaces {
+    width: 100%;
+    display: table;
+    float:left;
+    text-align:left;
+    margin-bottom: 1em;
+  }
+   .product-location {
+    width: 100%;
+    display: table;
+    float:left;
+    text-align:left;
+    margin-bottom: 1em;
+  }
+
 
 </style>
 
