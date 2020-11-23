@@ -3,7 +3,7 @@
     <mainMenu>
       <btn btnColor="btn btn-small btn-info btn-popup"
          :cartIcon="true"
-         @click.native="showPopupCart()">
+         @click.native="showPopupCart()" v-if="hasProduct()">
          Cart
         <span class="btn-circle" v-if="hasProduct()">
            {{ getProductsInCart.length }}
@@ -24,6 +24,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import mainMenu from './components/Menu';
+import checkout from './components/CartCheckout';
 import sorting from './components/Sorting';
 import btn from './components/Btn';
 import popupcart from './components/Popupcart';
@@ -36,6 +37,7 @@ export default {
     btn,
     popupcart,
     maskBg,
+    checkout,
   },
   methods: {
     ...mapActions([
