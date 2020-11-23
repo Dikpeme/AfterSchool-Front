@@ -19,22 +19,19 @@
     </h3>
 
     <div v-if="hasProduct()">
-      <h3>Checkout Now</h3>
-      <input v-model="name" placeholder="Your Name">
+      <h3 class="total">Checkout Now</h3>
+      <input type="text" v-model="name" placeholder="Your Name" class="checkout-box">
       <p>{{ name }}</p>
-      <input v-model="phone" placeholder="Your Phone Number">
+      <input type="number" v-model="phone" placeholder="Your Phone Number" class="checkout-box">
       <p>{{ phone }}</p>
 
-      <btn @click="doSumthin" id="namas" class="btn btn-large btn-info">
-         Checkout
-        
+      <btn btnColor="btn btn-large btn-info"
+          @click.native="openModal()">
+        CheckOut
       </btn>
-       <div class="boxer" id="nam">
-<h2>Checkout Success</h2>
-  </div>
-
     </div>
-
+    <modal>You've checked out successfully.</modal>
+    </div>
   </div>
 
 </template>
@@ -45,8 +42,15 @@ function burkutu()
   document.getElementById("nam").style.display='table';
 }
 import { mapGetters, mapActions } from 'vuex';
+import btn from './Btn';
+import modal from './Modal';
+
 
 export default {
+  components: {
+    btn,
+    modal,
+  },
   computed: {
     ...mapGetters([
       'getProductsInCart',
@@ -56,6 +60,7 @@ export default {
   methods: {
     ...mapActions([
       'removeProduct',
+      'showOrHiddenModal',
     ]),
     hasProduct() {
       return this.getProductsInCart.length > 0;
@@ -66,6 +71,9 @@ export default {
     },
     remove(index) {
       this.removeProduct(index);
+    },
+    openModal() {
+      this.showOrHiddenModal();
     },
   },
 };
