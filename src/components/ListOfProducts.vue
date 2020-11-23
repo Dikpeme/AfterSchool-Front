@@ -13,15 +13,17 @@
         <span>{{ Math.round(product.price / 10) }}, 00 </span>
       </div>
       <div class="product-spaces">
-               <span>Spaces: {{ product.spaces }} </span>
-</div>
+               <span v-if="product.spaces > 0">Spaces: {{ product.spaces }} </span>
+               <span v-if="product.spaces <= 0">Spaces: No Space </span>
+      </div>
+      
       <div class="product-location">
         <span>Location: {{ product.location }} </span>
      </div>
 
       <btn btnColor="btn btn-large btn-sucess"
           :cartIcon="true"
-          @click.native="addProductToCart(product)">
+          @click.native="addProductToCart(product), product.spaces=product.spaces-1" v-if="product.spaces > 0">
         Add to cart
       </btn>
     </li>
